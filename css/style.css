@@ -12,6 +12,7 @@ h1 {
 
 h2 {
     color: rgb(206, 206, 26);
+    text-align: center;
 }
 
 form {
@@ -21,6 +22,7 @@ form {
     box-shadow: 0 0 10px rgb(109, 7, 70);
     max-width: 600px;
     margin: auto;
+    margin-bottom: 20px;
 }
 
 label {
@@ -51,7 +53,8 @@ button:hover {
     background-color: rgb(175, 11, 216);
 }
 
-#resultado {
+#resultado,
+#resultadoBusqueda {
     background-color: rgb(44, 43, 43);
     padding: 20px;
     border-radius: 10px;
@@ -60,4 +63,66 @@ button:hover {
     margin: 20px auto;
     text-align: center;
     color: beige;
+}
+
+#historial,
+#resultadoBusqueda {
+    list-style: none;
+    padding: 0;
+}
+
+#historial li,
+#resultadoBusqueda li {
+    background-color: rgb(44, 43, 43);
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(83, 81, 81, 0.1);
+    color: beige;
+    text-align: left;
+}
+
+.ingreso {
+    color: #00cc00;
+}
+
+.gasto {
+    color: red;
+}
+
+.positivo {
+    color: #00cc00;
+    font-size: 1.2em;
+}
+
+.negativo {
+    color: red;
+    font-size: 1.2em;
+}
+
+.historial-gastos {
+    display: none;
+}
+
+#historial li:hover .historial-gastos,
+#resultadoBusqueda li:hover .historial-gastos {
+    display: block;
+}
+
+button.clear {
+    margin: 20px auto;
+    display: block;
+}
+
+button.eliminar {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+button.eliminar:hover {
+    background-color: #cc0000;
 }

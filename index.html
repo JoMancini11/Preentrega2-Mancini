@@ -34,7 +34,27 @@
 
         <button type="button" onclick="calcularPresupuesto()">Calcular</button>
     </form>
+
     <div id="resultado"></div>
+
+    <h2>Historial de Cálculos</h2>
+    <ul id="historial"></ul>
+    <button id="clearHistorial" onclick="eliminarHistorial()">Limpiar Historial</button>
+
+    <h2>Búsqueda en Historial</h2>
+    <form id="buscarForm">
+        <label for="buscarIngresos">Buscar por Ingresos:</label>
+        <input type="number" id="buscarIngresos" name="buscarIngresos">
+        <button type="button" onclick="buscarPorIngresosHandler()">Buscar</button>
+
+        <label for="buscarTipoGasto">Buscar por Tipo de Gasto:</label>
+        <input type="text" id="buscarTipoGasto" name="buscarTipoGasto">
+        <label for="buscarMontoGasto">Monto:</label>
+        <input type="number" id="buscarMontoGasto" name="buscarMontoGasto">
+        <button type="button" onclick="buscarPorGastoTipoHandler()">Buscar</button>
+    </form>
+
+    <div id="resultadoBusqueda"></div>
 </body>
 
 </html>
