@@ -1,0 +1,56 @@
+[
+    {
+        "ingresos": 3000,
+        "gastos": [
+            {
+                "tipo": "vivienda",
+                "monto": 800
+            },
+            {
+                "tipo": "alimentacion",
+                "monto": 300
+            },
+            {
+                "tipo": "transporte",
+                "monto": 150
+            },
+            {
+                "tipo": "entretenimiento",
+                "monto": 100
+            },
+            {
+                "tipo": "otros",
+                "monto": 50
+            }
+        ],
+        "totalGastos": 1400,
+        "presupuestoTotal": 1600
+    },
+    {
+        "ingresos": 2500,
+        "gastos": [
+            {
+                "tipo": "vivienda",
+                "monto": 700
+            },
+            {
+                "tipo": "alimentacion",
+                "monto": 250
+            },
+            {
+                "tipo": "transporte",
+                "monto": 200
+            },
+            {
+                "tipo": "entretenimiento",
+                "monto": 150
+            },
+            {
+                "tipo": "otros",
+                "monto": 100
+            }
+        ],
+        "totalGastos": 1400,
+        "presupuestoTotal": 1100
+    }
+]

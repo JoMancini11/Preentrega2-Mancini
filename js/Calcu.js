@@ -26,6 +26,7 @@ function calcularPresupuesto() {
     let presupuestoTotal = ingresos - totalGastos;
     mostrarResultado(presupuestoTotal, totalGastos);
     actualizarHistorial(presupuestoTotal, totalGastos);
+    guardarHistorialEnStorage();
 }
 
 // Función para mostrar el resultado
@@ -102,10 +103,29 @@ function mostrarResultadoBusqueda(resultados) {
 function eliminarHistorial() {
     historial = [];
     mostrarHistorial();
+    guardarHistorialEnStorage();
 }
 
 // Función para eliminar un elemento del historial
 function eliminarElementoHistorial(index) {
     historial.splice(index, 1);
     mostrarHistorial();
+    guardarHistorialEnStorage();
 }
+
+// Función para guardar el historial en el Storage
+function guardarHistorialEnStorage() {
+    localStorage.setItem('historial', JSON.stringify(historial));
+}
+
+// Función para cargar el historial desde el Storage
+function cargarHistorialDesdeStorage() {
+    let datos = localStorage.getItem('historial');
+    if (datos) {
+        historial = JSON.parse(datos);
+        mostrarHistorial();
+    }
+}
+
+// Cargar el historial cuando la página se carga
+document.addEventListener('DOMContentLoaded', cargarHistorialDesdeStorage);
