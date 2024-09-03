@@ -4,57 +4,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Presupuesto Familiar</title>
-    <link rel="stylesheet" href="css/style.css">
-    <script src="js/Calcu.js" defer></script>
+    <title>Simulador de Presupuesto</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-    <h1>Simulador de Presupuesto Familiar</h1>
-    <form id="presupuestoForm">
-        <h2>Ingresos</h2>
-        <label for="ingresos">Total de Ingresos Mensuales:</label>
-        <input type="number" id="ingresos" name="ingresos">
+    <h1>Simulador de Presupuesto</h1>
+    <h2>Calcula tus gastos e ingresos</h2>
 
-        <h2>Gastos</h2>
-        <label for="vivienda">Vivienda:</label>
-        <input type="number" id="vivienda" name="vivienda">
+    <form onsubmit="event.preventDefault(); calcularPresupuesto();">
+        <label for="ingresos">Ingresos:</label>
+        <input type="number" id="ingresos" required>
 
-        <label for="alimentacion">Alimentación:</label>
-        <input type="number" id="alimentacion" name="alimentacion">
+        <label for="vivienda">Gasto en vivienda:</label>
+        <input type="number" id="vivienda" required>
 
-        <label for="transporte">Transporte:</label>
-        <input type="number" id="transporte" name="transporte">
+        <label for="alimentacion">Gasto en alimentación:</label>
+        <input type="number" id="alimentacion" required>
 
-        <label for="entretenimiento">Entretenimiento:</label>
-        <input type="number" id="entretenimiento" name="entretenimiento">
+        <label for="transporte">Gasto en transporte:</label>
+        <input type="number" id="transporte" required>
 
-        <label for="otros">Otros Gastos:</label>
-        <input type="number" id="otros" name="otros">
+        <label for="entretenimiento">Gasto en entretenimiento:</label>
+        <input type="number" id="entretenimiento" required>
 
-        <button type="button" onclick="calcularPresupuesto()">Calcular</button>
+        <label for="otros">Otros gastos:</label>
+        <input type="number" id="otros" required>
+
+        <button type="submit">Calcular Presupuesto</button>
     </form>
 
     <div id="resultado"></div>
 
+    <h2>Gráfico de Gastos</h2>
+    <canvas id="gastosChart"></canvas>
+
     <h2>Historial de Cálculos</h2>
     <ul id="historial"></ul>
-    <button id="clearHistorial" onclick="eliminarHistorial()">Limpiar Historial</button>
 
-    <h2>Búsqueda en Historial</h2>
-    <form id="buscarForm">
-        <label for="buscarIngresos">Buscar por Ingresos:</label>
-        <input type="number" id="buscarIngresos" name="buscarIngresos">
-        <button type="button" onclick="buscarPorIngresosHandler()">Buscar</button>
+    <h2>Buscar en Historial</h2>
+    <label for="buscarIngresos">Buscar por Ingresos:</label>
+    <input type="number" id="buscarIngresos">
+    <button onclick="buscarPorIngresosHandler()">Buscar</button>
 
-        <label for="buscarTipoGasto">Buscar por Tipo de Gasto:</label>
-        <input type="text" id="buscarTipoGasto" name="buscarTipoGasto">
-        <label for="buscarMontoGasto">Monto:</label>
-        <input type="number" id="buscarMontoGasto" name="buscarMontoGasto">
-        <button type="button" onclick="buscarPorGastoTipoHandler()">Buscar</button>
-    </form>
+    <label for="buscarTipoGasto">Buscar por Tipo de Gasto:</label>
+    <select id="buscarTipoGasto">
+        <option value="vivienda">Vivienda</option>
+        <option value="alimentacion">Alimentación</option>
+        <option value="transporte">Transporte</option>
+        <option value="entretenimiento">Entretenimiento</option>
+        <option value="otros">Otros</option>
+    </select>
+    <input type="number" id="buscarMontoGasto">
+    <button onclick="buscarPorGastoTipoHandler()">Buscar</button>
 
     <div id="resultadoBusqueda"></div>
+
+    <button class="clear" onclick="eliminarHistorial()">Eliminar Historial</button>
+
+    <script src="Calcu.js"></script>
 </body>
 
 </html>
