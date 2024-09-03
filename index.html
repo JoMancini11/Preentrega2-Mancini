@@ -4,33 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simulador de Presupuesto</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Simulador de Presupuesto Familiar</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/Calcu.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
-    <h1>Simulador de Presupuesto</h1>
+    <h1>Simulador de Presupuesto Familiar</h1>
     <h2>Calcula tus gastos e ingresos</h2>
 
     <form onsubmit="event.preventDefault(); calcularPresupuesto();">
-        <label for="ingresos">Ingresos:</label>
-        <input type="number" id="ingresos" required>
+        <label for="ingresos">Total de Ingresos Mensuales:</label>
+        <input type="number" id="ingresos" name="ingresos" required>
 
-        <label for="vivienda">Gasto en vivienda:</label>
-        <input type="number" id="vivienda" required>
+        <label for="vivienda">Vivienda:</label>
+        <input type="number" id="vivienda" name="vivienda" required>
 
-        <label for="alimentacion">Gasto en alimentación:</label>
-        <input type="number" id="alimentacion" required>
+        <label for="alimentacion">Alimentación:</label>
+        <input type="number" id="alimentacion" name="alimentacion" required>
 
-        <label for="transporte">Gasto en transporte:</label>
-        <input type="number" id="transporte" required>
+        <label for="transporte">Transporte:</label>
+        <input type="number" id="transporte" name="transporte" required>
 
-        <label for="entretenimiento">Gasto en entretenimiento:</label>
-        <input type="number" id="entretenimiento" required>
+        <label for="entretenimiento">Entretenimiento:</label>
+        <input type="number" id="entretenimiento" name="entretenimiento" required>
 
-        <label for="otros">Otros gastos:</label>
-        <input type="number" id="otros" required>
+        <label for="otros">Otros Gastos:</label>
+        <input type="number" id="otros" name="otros" required>
 
         <button type="submit">Calcular Presupuesto</button>
     </form>
@@ -62,8 +63,6 @@
     <div id="resultadoBusqueda"></div>
 
     <button class="clear" onclick="eliminarHistorial()">Eliminar Historial</button>
-
-    <script src="Calcu.js"></script>
 </body>
 
 </html>
